@@ -1,0 +1,24 @@
+C:\Users\Vlad\source\repos\Movie Tracker\Movie Tracker\bin\Debug\netcoreapp2.0\Movie Tracker.deps.json
+C:\Users\Vlad\source\repos\Movie Tracker\Movie Tracker\bin\Debug\netcoreapp2.0\Movie Tracker.runtimeconfig.json
+C:\Users\Vlad\source\repos\Movie Tracker\Movie Tracker\bin\Debug\netcoreapp2.0\Movie Tracker.runtimeconfig.dev.json
+C:\Users\Vlad\source\repos\Movie Tracker\Movie Tracker\bin\Debug\netcoreapp2.0\Movie Tracker.dll
+C:\Users\Vlad\source\repos\Movie Tracker\Movie Tracker\bin\Debug\netcoreapp2.0\Movie Tracker.pdb
+C:\Users\Vlad\source\repos\Movie Tracker\Movie Tracker\obj\Debug\netcoreapp2.0\Movie Tracker.csprojResolveAssemblyReference.cache
+C:\Users\Vlad\source\repos\Movie Tracker\Movie Tracker\obj\Debug\netcoreapp2.0\Movie Tracker.csproj.CoreCompileInputs.cache
+C:\Users\Vlad\source\repos\Movie Tracker\Movie Tracker\obj\Debug\netcoreapp2.0\Movie Tracker.AssemblyInfoInputs.cache
+C:\Users\Vlad\source\repos\Movie Tracker\Movie Tracker\obj\Debug\netcoreapp2.0\Movie Tracker.AssemblyInfo.cs
+C:\Users\Vlad\source\repos\Movie Tracker\Movie Tracker\obj\Debug\netcoreapp2.0\Movie Tracker.dll
+C:\Users\Vlad\source\repos\Movie Tracker\Movie Tracker\obj\Debug\netcoreapp2.0\Movie Tracker.pdb
+C:\Users\Vlad\source\repos\Movie Tracker\Movie Tracker\obj\Debug\netcoreapp2.0\UserSecretsAssemblyInfo.cs
+C:\Users\dinua\Desktop\Movie Tracker\Movie Tracker\bin\Debug\netcoreapp2.0\Movie Tracker.deps.json
+C:\Users\dinua\Desktop\Movie Tracker\Movie Tracker\bin\Debug\netcoreapp2.0\Movie Tracker.runtimeconfig.json
+C:\Users\dinua\Desktop\Movie Tracker\Movie Tracker\bin\Debug\netcoreapp2.0\Movie Tracker.runtimeconfig.dev.json
+C:\Users\dinua\Desktop\Movie Tracker\Movie Tracker\bin\Debug\netcoreapp2.0\Movie Tracker.dll
+C:\Users\dinua\Desktop\Movie Tracker\Movie Tracker\bin\Debug\netcoreapp2.0\Movie Tracker.pdb
+C:\Users\dinua\Desktop\Movie Tracker\Movie Tracker\obj\Debug\netcoreapp2.0\Movie Tracker.csprojResolveAssemblyReference.cache
+C:\Users\dinua\Desktop\Movie Tracker\Movie Tracker\obj\Debug\netcoreapp2.0\Movie Tracker.csproj.CoreCompileInputs.cache
+C:\Users\dinua\Desktop\Movie Tracker\Movie Tracker\obj\Debug\netcoreapp2.0\UserSecretsAssemblyInfo.cs
+C:\Users\dinua\Desktop\Movie Tracker\Movie Tracker\obj\Debug\netcoreapp2.0\Movie Tracker.AssemblyInfoInputs.cache
+C:\Users\dinua\Desktop\Movie Tracker\Movie Tracker\obj\Debug\netcoreapp2.0\Movie Tracker.AssemblyInfo.cs
+C:\Users\dinua\Desktop\Movie Tracker\Movie Tracker\obj\Debug\netcoreapp2.0\Movie Tracker.dll
+C:\Users\dinua\Desktop\Movie Tracker\Movie Tracker\obj\Debug\netcoreapp2.0\Movie Tracker.pdb
