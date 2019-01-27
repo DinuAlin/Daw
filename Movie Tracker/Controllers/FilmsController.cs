@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -47,6 +48,7 @@ namespace Movie_Tracker.Controllers
             return View(film);
         }
 
+        [Authorize(Roles = "Admin")]
         // GET: Films/Create
         public IActionResult Create()
         {
@@ -56,6 +58,7 @@ namespace Movie_Tracker.Controllers
             return View();
         }
 
+        [Authorize(Roles = "Admin")]
         // POST: Films/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -75,6 +78,7 @@ namespace Movie_Tracker.Controllers
             return View(film);
         }
 
+        [Authorize(Roles = "Admin")]
         // GET: Films/Edit/5
         public async Task<IActionResult> Edit(long? id)
         {
@@ -94,6 +98,7 @@ namespace Movie_Tracker.Controllers
             return View(film);
         }
 
+        [Authorize(Roles = "Admin")]
         // POST: Films/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -132,6 +137,7 @@ namespace Movie_Tracker.Controllers
             return View(film);
         }
 
+        [Authorize(Roles = "Admin")]
         // GET: Films/Delete/5
         public async Task<IActionResult> Delete(long? id)
         {
@@ -152,6 +158,7 @@ namespace Movie_Tracker.Controllers
             return View(film);
         }
 
+        [Authorize(Roles = "Admin")]
         // POST: Films/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
