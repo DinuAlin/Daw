@@ -40,6 +40,9 @@
 @foreach (var item in Model) {
         <tr>
             <td>
+                @Html.DisplayFor(modelItem => item.Nume)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.Gen)
             </td>
             <td>

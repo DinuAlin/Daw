@@ -22,7 +22,7 @@ namespace Movie_Tracker.Controllers
         // GET: Films
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.Film.Include(f => f.IdCompozitorNavigation).Include(f => f.IdScenaristNavigation);
+            var applicationDbContext = _context.Film.Include(f => f.IdRegizorNavigation).Include(f => f.IdCompozitorNavigation).Include(f => f.IdScenaristNavigation);
             return View(await applicationDbContext.ToListAsync());
         }
 
@@ -35,6 +35,7 @@ namespace Movie_Tracker.Controllers
             }
 
             var film = await _context.Film
+                .Include(f => f.IdRegizorNavigation)
                 .Include(f => f.IdCompozitorNavigation)
                 .Include(f => f.IdScenaristNavigation)
                 .SingleOrDefaultAsync(m => m.IdFilm == id);
@@ -60,7 +61,7 @@ namespace Movie_Tracker.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdFilm,Gen,Durata,DataLansare,IdRegizor,IdScenarist,IdCompozitor")] Film film)
+        public async Task<IActionResult> Create([Bind("IdFilm,Nume,Gen,Durata,DataLansare,IdRegizor,IdScenarist,IdCompozitor")] Film film)
         {
             if (ModelState.IsValid)
             {
@@ -98,7 +99,7 @@ namespace Movie_Tracker.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(long id, [Bind("IdFilm,Gen,Durata,DataLansare,IdRegizor,IdScenarist,IdCompozitor")] Film film)
+        public async Task<IActionResult> Edit(long id, [Bind("IdFilm,Nume,Gen,Durata,DataLansare,IdRegizor,IdScenarist,IdCompozitor")] Film film)
         {
             if (id != film.IdFilm)
             {
