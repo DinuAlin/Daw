@@ -70,29 +70,6 @@
 <div class="row">
     <div class="col-md-12">
         <h2>Bine ați venit în Movie Tracker!</h2>
-        <p>
-            Ultimele filme apărute:
-        </p>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Nume)
-                    </th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model.Take(4))
-                {
-                    <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Nume)
-                        </td>
-                    </tr>
-
-                }
-            </tbody>
-        </table>
+        
     </div>
 </div>
