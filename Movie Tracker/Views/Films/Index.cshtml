@@ -1,94 +1,95 @@
 ﻿@model IEnumerable<Movie_Tracker.Models.Film>
 
-@{
-    ViewData["Title"] = "Index";
-}
 
-<h2>Index</h2>
-
-<p>
-    @if (User.Identity.IsAuthenticated)
-    {
-        @if (User.IsInRole("Admin"))
-        {
-            <a asp-action="Create">Create New</a>
-        }
+    @{
+        ViewData["Title"] = "Index";
     }
-</p>
 
-@using (Html.BeginForm())
-{
+    <h2>Index</h2>
+
     <p>
-        Find by name: @Html.TextBox("SearchString")
-        <input type="submit" value="Search" />
-    </p>
-}
-
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.ActionLink("Nume", "Index", new { sortOrder = ViewBag.NameSortParm })
-            </th>
-            <th>
-                @Html.ActionLink("Gen", "Index", new { sortOrder = ViewBag.GenSortParm })
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Durata)
-            </th>
-            <th>
-                @Html.ActionLink("DataLansare", "Index", new { sortOrder = ViewBag.DateSortParm })
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IdRegizor)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IdCompozitorNavigation)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IdScenaristNavigation)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
+        @if (User.Identity.IsAuthenticated)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Nume)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Gen)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Durata)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.DataLansare)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.IdRegizor)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.IdCompozitorNavigation.IdCompozitor)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.IdScenaristNavigation.IdScenarist)
-                </td>
-                <td>
-                    <a asp-action="Details" asp-route-id="@item.IdFilm">Details</a>
-                    @if (User.Identity.IsAuthenticated)
-                    {
-                        @if (User.IsInRole("Admin"))
-                        {
-                            <a asp-action="Edit" asp-route-id="@item.IdFilm">Edit</a>
-                            <a asp-action="Delete" asp-route-id="@item.IdFilm">Delete</a>
-                        }
-                    }
-
-                </td>
-            </tr>
+            @if (User.IsInRole("Admin"))
+            {
+                <a asp-action="Create">Create New</a>
+            }
         }
-    </tbody>
-</table>
+    </p>
+
+    @using (Html.BeginForm())
+    {
+        <p>
+            Find by name: @Html.TextBox("SearchString")
+            <input type="submit" value="Search" />
+        </p>
+    }
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.ActionLink("Nume", "Index", new { sortOrder = ViewBag.NameSortParm })
+                </th>
+                <th>
+                    @Html.ActionLink("Gen", "Index", new { sortOrder = ViewBag.GenSortParm })
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Durata)
+                </th>
+                <th>
+                    @Html.ActionLink("DataLansare", "Index", new { sortOrder = ViewBag.DateSortParm })
+                </th>
+                <th>
+                    @Html.Raw("Regizor")
+                </th>
+                <th>
+                    @Html.Raw("Compozitor")
+                </th>
+                <th>
+                    @Html.Raw("Scenarist")
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 0; i < Model.Count(); i ++)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => Model.ElementAt(i).Nume)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => Model.ElementAt(i).Gen)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => Model.ElementAt(i).Durata)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => Model.ElementAt(i).DataLansare)
+                    </td>
+                    <td>
+                        @Html.Raw(ViewBag.RegizorNames[i])
+                    </td>
+                    <td>
+                        @Html.Raw(ViewBag.CompozitorNames[i])
+                    </td>
+                    <td>
+                        @Html.Raw(ViewBag.ScenaristNames[i])
+                    </td>
+                    <td>
+                        <a asp-action="Details" asp-route-id="@Model.ElementAt(i).IdFilm">Details</a>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            @if (User.IsInRole("Admin"))
+                            {
+                                <a asp-action="Edit" asp-route-id="@Model.ElementAt(i).IdFilm">Edit</a>
+                                <a asp-action="Delete" asp-route-id="@Model.ElementAt(i).IdFilm">Delete</a>
+                            }
+                        }
+
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>

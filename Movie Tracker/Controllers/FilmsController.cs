@@ -29,10 +29,40 @@ namespace Movie_Tracker.Controllers
             ViewBag.GenSortParm = sortOrder == "Gen" ? "gen_desc" : "Gen";
             var films = from a in _context.Film
                         select a;
+            var regizorNames = from r in _context.Regizor
+                               from f in _context.Film
+                               where r.Id == f.IdRegizor
+
+                             select r.Nume;
+
+            string[] regizorNamesArray = regizorNames.ToArray();
+            ViewBag.RegizorNames = regizorNamesArray;
+       
+
+            var compozitorNames = from r in _context.Compozitor
+                               from f in _context.Film
+                               where r.IdCompozitor == f.IdCompozitor
+
+                               select r.Nume;
+
+            string[] compozitorNamesArray = compozitorNames.ToArray();
+            ViewBag.CompozitorNames = compozitorNamesArray;
+
+            var scenaristNames = from r in _context.Scenarist
+                                  from f in _context.Film
+                                  where r.IdScenarist == f.IdCompozitor
+
+                                  select r.Nume;
+
+            string[] scenaristNamesArray = scenaristNames.ToArray();
+            ViewBag.ScenaristNames = scenaristNamesArray;
+
+
             if (!String.IsNullOrEmpty(searchString))
             {
                 films = films.Where(s => s.Nume.Contains(searchString));
             }
+
             switch (sortOrder)
             {
                 case "name_desc":
