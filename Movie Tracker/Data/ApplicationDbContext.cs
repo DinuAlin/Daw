@@ -28,5 +28,11 @@ namespace Movie_Tracker.Data
         public DbSet<Movie_Tracker.Models.Compozitor> Compozitor { get; set; }
 
         public DbSet<Movie_Tracker.Models.Scenarist> Scenarist { get; set; }
+
+        public DbSet<Movie_Tracker.Models.Regizor> Regizor { get; set; }
+
+        public DbSet<Movie_Tracker.Models.Producator> Producator { get; set; }
+
+        public DbSet<Movie_Tracker.Models.Film> Film { get; set; }
     }
 }

@@ -5,6 +5,11 @@
     <UserSecretsId>aspnet-Movie_Tracker-7A842D39-F269-40F3-AA8C-410A6F65A045</UserSecretsId>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="Data\Migrations\20190126194242_Cacat.cs" />
+    <Compile Remove="Data\Migrations\20190126194242_Cacat.Designer.cs" />
+  </ItemGroup>
+
 
   <ItemGroup>
     <PackageReference Include="EntityFramework" Version="6.2.0" />

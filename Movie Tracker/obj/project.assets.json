@@ -13302,11 +13302,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\dinua\\Desktop\\Movie Tracker\\Movie Tracker\\Movie Tracker.csproj",
+      "projectUniqueName": "D:\\Programare\\DAW\\Daw\\Movie Tracker\\Movie Tracker.csproj",
       "projectName": "Movie Tracker",
-      "projectPath": "C:\\Users\\dinua\\Desktop\\Movie Tracker\\Movie Tracker\\Movie Tracker.csproj",
+      "projectPath": "D:\\Programare\\DAW\\Daw\\Movie Tracker\\Movie Tracker.csproj",
       "packagesPath": "C:\\Users\\dinua\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\dinua\\Desktop\\Movie Tracker\\Movie Tracker\\obj\\",
+      "outputPath": "D:\\Programare\\DAW\\Daw\\Movie Tracker\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

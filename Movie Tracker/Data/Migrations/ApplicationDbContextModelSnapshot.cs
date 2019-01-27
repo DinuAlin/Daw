@@ -128,6 +128,22 @@ namespace Movie_Tracker.Data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
+            modelBuilder.Entity("Movie_Tracker.Models.Actor", b =>
+                {
+                    b.Property<long>("IdActor")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<DateTime?>("DataNastere");
+
+                    b.Property<string>("Nume");
+
+                    b.Property<string>("Prenume");
+
+                    b.HasKey("IdActor");
+
+                    b.ToTable("Actor");
+                });
+
             modelBuilder.Entity("Movie_Tracker.Models.ApplicationUser", b =>
                 {
                     b.Property<string>("Id")
@@ -179,6 +195,150 @@ namespace Movie_Tracker.Data.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
+            modelBuilder.Entity("Movie_Tracker.Models.Compozitor", b =>
+                {
+                    b.Property<long>("IdCompozitor")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<DateTime?>("DataNastere");
+
+                    b.Property<string>("Nume");
+
+                    b.Property<string>("Prenume");
+
+                    b.HasKey("IdCompozitor");
+
+                    b.ToTable("Compozitor");
+                });
+
+            modelBuilder.Entity("Movie_Tracker.Models.Film", b =>
+                {
+                    b.Property<long>("IdFilm")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<DateTime?>("DataLansare");
+
+                    b.Property<string>("Durata");
+
+                    b.Property<string>("Gen");
+
+                    b.Property<long?>("IdCompozitor");
+
+                    b.Property<long?>("IdRegizor");
+
+                    b.Property<long?>("IdRegizorNavigationId");
+
+                    b.Property<long?>("IdScenarist");
+
+                    b.HasKey("IdFilm");
+
+                    b.HasIndex("IdCompozitor");
+
+                    b.HasIndex("IdRegizorNavigationId");
+
+                    b.HasIndex("IdScenarist");
+
+                    b.ToTable("Film");
+                });
+
+            modelBuilder.Entity("Movie_Tracker.Models.FilmActor", b =>
+                {
+                    b.Property<long>("IdFilmActor")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<long?>("IdActor");
+
+                    b.Property<long?>("IdFilm");
+
+                    b.HasKey("IdFilmActor");
+
+                    b.HasIndex("IdActor");
+
+                    b.HasIndex("IdFilm");
+
+                    b.ToTable("FilmActor");
+                });
+
+            modelBuilder.Entity("Movie_Tracker.Models.FilmProducator", b =>
+                {
+                    b.Property<long>("IdFilmProducator")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<long?>("IdFilm");
+
+                    b.Property<long?>("IdProducator");
+
+                    b.HasKey("IdFilmProducator");
+
+                    b.HasIndex("IdFilm");
+
+                    b.HasIndex("IdProducator");
+
+                    b.ToTable("FilmProducator");
+                });
+
+            modelBuilder.Entity("Movie_Tracker.Models.Producator", b =>
+                {
+                    b.Property<long>("IdProducator")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<DateTime?>("DataNastere");
+
+                    b.Property<string>("Nume");
+
+                    b.Property<string>("Prenume");
+
+                    b.HasKey("IdProducator");
+
+                    b.ToTable("Producator");
+                });
+
+            modelBuilder.Entity("Movie_Tracker.Models.Regizor", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<DateTime?>("DataNastere");
+
+                    b.Property<string>("Nume");
+
+                    b.Property<string>("Prenume");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Regizor");
+                });
+
+            modelBuilder.Entity("Movie_Tracker.Models.Scenarist", b =>
+                {
+                    b.Property<long>("IdScenarist")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<DateTime?>("DataNastere");
+
+                    b.Property<string>("Nume");
+
+                    b.Property<string>("Prenume");
+
+                    b.HasKey("IdScenarist");
+
+                    b.ToTable("Scenarist");
+                });
+
+            modelBuilder.Entity("Movie_Tracker.Models.UserFilm", b =>
+                {
+                    b.Property<long>("IdUserFilm")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<long?>("IdFilm");
+
+                    b.HasKey("IdUserFilm");
+
+                    b.HasIndex("IdFilm");
+
+                    b.ToTable("UserFilm");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole")
@@ -222,6 +382,50 @@ namespace Movie_Tracker.Data.Migrations
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("Movie_Tracker.Models.Film", b =>
+                {
+                    b.HasOne("Movie_Tracker.Models.Compozitor", "IdCompozitorNavigation")
+                        .WithMany("Film")
+                        .HasForeignKey("IdCompozitor");
+
+                    b.HasOne("Movie_Tracker.Models.Regizor", "IdRegizorNavigation")
+                        .WithMany("Film")
+                        .HasForeignKey("IdRegizorNavigationId");
+
+                    b.HasOne("Movie_Tracker.Models.Scenarist", "IdScenaristNavigation")
+                        .WithMany("Film")
+                        .HasForeignKey("IdScenarist");
+                });
+
+            modelBuilder.Entity("Movie_Tracker.Models.FilmActor", b =>
+                {
+                    b.HasOne("Movie_Tracker.Models.Actor", "IdActorNavigation")
+                        .WithMany("FilmActor")
+                        .HasForeignKey("IdActor");
+
+                    b.HasOne("Movie_Tracker.Models.Film", "IdFilmNavigation")
+                        .WithMany("FilmActor")
+                        .HasForeignKey("IdFilm");
+                });
+
+            modelBuilder.Entity("Movie_Tracker.Models.FilmProducator", b =>
+                {
+                    b.HasOne("Movie_Tracker.Models.Film", "IdFilmNavigation")
+                        .WithMany("FilmProducator")
+                        .HasForeignKey("IdFilm");
+
+                    b.HasOne("Movie_Tracker.Models.Producator", "IdProducatorNavigation")
+                        .WithMany("FilmProducator")
+                        .HasForeignKey("IdProducator");
+                });
+
+            modelBuilder.Entity("Movie_Tracker.Models.UserFilm", b =>
+                {
+                    b.HasOne("Movie_Tracker.Models.Film", "IdFilmNavigation")
+                        .WithMany("UserFilm")
+                        .HasForeignKey("IdFilm");
                 });
 #pragma warning restore 612, 618
         }
