@@ -20,9 +20,34 @@ namespace Movie_Tracker.Controllers
         }
 
         // GET: Actors
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string sortOrder, string searchString)
         {
-            return View(await _context.Actor.ToListAsync());
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
+            var actors = from a in _context.Actor
+                         select a;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                actors = actors.Where(s => s.Nume.Contains(searchString)
+                                       || s.Prenume.Contains(searchString));
+            }
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    actors = actors.OrderByDescending(s => s.Nume);
+                    break;
+                case "Date":
+                    actors = actors.OrderBy(s => s.DataNastere);
+                    break;
+                case "date_desc":
+                    actors = actors.OrderByDescending(s => s.DataNastere);
+                    break;
+                default:
+                    actors = actors.OrderBy(s => s.Nume);
+                    break;
+            }
+            return View(actors.ToList());
+            //return View(await _context.Actor.ToListAsync());
         }
 
         // GET: Actors/Details/5
