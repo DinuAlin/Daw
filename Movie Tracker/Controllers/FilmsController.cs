@@ -49,6 +49,7 @@ namespace Movie_Tracker.Controllers
         // GET: Films/Create
         public IActionResult Create()
         {
+            ViewData["IdRegizor"] = new SelectList(_context.Regizor, "IdRegizor", "IdRegizor");
             ViewData["IdCompozitor"] = new SelectList(_context.Compozitor, "IdCompozitor", "IdCompozitor");
             ViewData["IdScenarist"] = new SelectList(_context.Scenarist, "IdScenarist", "IdScenarist");
             return View();
@@ -67,6 +68,7 @@ namespace Movie_Tracker.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["IdRegizor"] = new SelectList(_context.Regizor, "IdRegizor", "IdRegizor", film.IdRegizor);
             ViewData["IdCompozitor"] = new SelectList(_context.Compozitor, "IdCompozitor", "IdCompozitor", film.IdCompozitor);
             ViewData["IdScenarist"] = new SelectList(_context.Scenarist, "IdScenarist", "IdScenarist", film.IdScenarist);
             return View(film);
@@ -85,6 +87,7 @@ namespace Movie_Tracker.Controllers
             {
                 return NotFound();
             }
+            ViewData["IdRegizor"] = new SelectList(_context.Regizor, "IdRegizor", "IdRegizor", film.IdRegizor);
             ViewData["IdCompozitor"] = new SelectList(_context.Compozitor, "IdCompozitor", "IdCompozitor", film.IdCompozitor);
             ViewData["IdScenarist"] = new SelectList(_context.Scenarist, "IdScenarist", "IdScenarist", film.IdScenarist);
             return View(film);
@@ -122,6 +125,7 @@ namespace Movie_Tracker.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["IdRegizor"] = new SelectList(_context.Regizor, "IdRegizor", "IdRegizor", film.IdRegizor);
             ViewData["IdCompozitor"] = new SelectList(_context.Compozitor, "IdCompozitor", "IdCompozitor", film.IdCompozitor);
             ViewData["IdScenarist"] = new SelectList(_context.Scenarist, "IdScenarist", "IdScenarist", film.IdScenarist);
             return View(film);

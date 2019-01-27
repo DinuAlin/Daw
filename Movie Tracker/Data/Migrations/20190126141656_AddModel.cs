@@ -90,7 +90,7 @@ namespace Movie_Tracker.Data.Migrations
                 {
                     IdFilm = table.Column<Int64>(nullable: false)
                     .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Nume = table.Column<string>(maxLength: 50, nullable: false),
+                    Nume = table.Column<string>(maxLength: 50, nullable: true),
                     Gen = table.Column<string>(maxLength: 256, nullable: true),
                     Durata = table.Column<string>(maxLength: 256, nullable: true),
                     DataLansare = table.Column<DateTime>(nullable: true),
@@ -108,6 +108,12 @@ namespace Movie_Tracker.Data.Migrations
                         principalTable: "Regizor",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                       name: "FK_Film_IdRegizor",
+                       column: x => x.IdRegizor,
+                       principalTable: "Regizor",
+                       principalColumn: "Id",
+                       onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Film_IdScenarist",
                         column: x => x.IdScenarist,

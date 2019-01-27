@@ -15,6 +15,7 @@ namespace Movie_Tracker.Models
         }
 
         [Key] public long IdFilm { get; set; }
+        public string Nume { get; set; }
         public string Gen { get; set; }
         public string Durata { get; set; }
         public DateTime? DataLansare { get; set; }
