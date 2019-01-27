@@ -34,3 +34,15 @@ D:\Programare\DAW\Daw\Movie Tracker\obj\Debug\netcoreapp2.0\Movie Tracker.Assemb
 D:\Programare\DAW\Daw\Movie Tracker\obj\Debug\netcoreapp2.0\Movie Tracker.AssemblyInfo.cs
 D:\Programare\DAW\Daw\Movie Tracker\obj\Debug\netcoreapp2.0\Movie Tracker.dll
 D:\Programare\DAW\Daw\Movie Tracker\obj\Debug\netcoreapp2.0\Movie Tracker.pdb
+E:\Programs\DawRepo\Daw\Movie Tracker\bin\Debug\netcoreapp2.0\Movie Tracker.deps.json
+E:\Programs\DawRepo\Daw\Movie Tracker\bin\Debug\netcoreapp2.0\Movie Tracker.runtimeconfig.json
+E:\Programs\DawRepo\Daw\Movie Tracker\bin\Debug\netcoreapp2.0\Movie Tracker.runtimeconfig.dev.json
+E:\Programs\DawRepo\Daw\Movie Tracker\bin\Debug\netcoreapp2.0\Movie Tracker.dll
+E:\Programs\DawRepo\Daw\Movie Tracker\bin\Debug\netcoreapp2.0\Movie Tracker.pdb
+E:\Programs\DawRepo\Daw\Movie Tracker\obj\Debug\netcoreapp2.0\Movie Tracker.csprojResolveAssemblyReference.cache
+E:\Programs\DawRepo\Daw\Movie Tracker\obj\Debug\netcoreapp2.0\Movie Tracker.csproj.CoreCompileInputs.cache
+E:\Programs\DawRepo\Daw\Movie Tracker\obj\Debug\netcoreapp2.0\UserSecretsAssemblyInfo.cs
+E:\Programs\DawRepo\Daw\Movie Tracker\obj\Debug\netcoreapp2.0\Movie Tracker.AssemblyInfoInputs.cache
+E:\Programs\DawRepo\Daw\Movie Tracker\obj\Debug\netcoreapp2.0\Movie Tracker.AssemblyInfo.cs
+E:\Programs\DawRepo\Daw\Movie Tracker\obj\Debug\netcoreapp2.0\Movie Tracker.dll
+E:\Programs\DawRepo\Daw\Movie Tracker\obj\Debug\netcoreapp2.0\Movie Tracker.pdb
