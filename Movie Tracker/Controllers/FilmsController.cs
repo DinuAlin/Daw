@@ -21,10 +21,41 @@ namespace Movie_Tracker.Controllers
         }
 
         // GET: Films
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string sortOrder, string searchString)
         {
             var applicationDbContext = _context.Film.Include(f => f.IdRegizorNavigation).Include(f => f.IdCompozitorNavigation).Include(f => f.IdScenaristNavigation);
-            return View(await applicationDbContext.ToListAsync());
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
+            ViewBag.GenSortParm = sortOrder == "Gen" ? "gen_desc" : "Gen";
+            var films = from a in _context.Film
+                        select a;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                films = films.Where(s => s.Nume.Contains(searchString));
+            }
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    films = films.OrderByDescending(s => s.Nume);
+                    break;
+                case "Date":
+                    films = films.OrderBy(s => s.DataLansare);
+                    break;
+                case "date_desc":
+                    films = films.OrderByDescending(s => s.DataLansare);
+                    break;
+                case "Gen":
+                    films = films.OrderBy(s => s.Gen);
+                    break;
+                case "gen_desc":
+                    films = films.OrderByDescending(s => s.Gen);
+                    break;
+                default:
+                    films = films.OrderBy(s => s.Nume);
+                    break;
+            }
+            return View(films.ToList());
+            //return View(await applicationDbContext.ToListAsync());
         }
 
         // GET: Films/Details/5
