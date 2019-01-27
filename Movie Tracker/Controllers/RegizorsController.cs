@@ -20,9 +20,33 @@ namespace Movie_Tracker.Controllers
         }
 
         // GET: Regizors
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string sortOrder, string searchString)
         {
-            return View(await _context.Regizor.ToListAsync());
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
+            var regizori = from a in _context.Regizor
+                         select a;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                regizori = regizori.Where(s => s.Nume.Contains(searchString)
+                                       || s.Prenume.Contains(searchString));
+            }
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    regizori = regizori.OrderByDescending(s => s.Nume);
+                    break;
+                case "Date":
+                    regizori = regizori.OrderBy(s => s.DataNastere);
+                    break;
+                case "date_desc":
+                    regizori = regizori.OrderByDescending(s => s.DataNastere);
+                    break;
+                default:
+                    regizori = regizori.OrderBy(s => s.Nume);
+                    break;
+            }
+            return View(regizori.ToList());
         }
 
         // GET: Regizors/Details/5
